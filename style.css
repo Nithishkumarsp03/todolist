@@ -2,86 +2,224 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
-    
-}
-
-.container {
-    background-image: url("pexels-polina-kovaleva-5717463.jpg");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.list {
+  }
+  
+  .container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 500px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 15px;
+  }
+  
+  h1 {
     text-align: center;
-}
-
-.list h1 {
     margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.row {
+    color: #333;
+  }
+  
+  .row {
     display: flex;
-    align-items: center;
+    gap: 10px;
     margin-bottom: 20px;
-}
-
-input[type="text"] {
+  }
+  
+  input[type="text"] {
     flex: 1;
-    padding: 10px;
-    border: none;
+    padding: 10px 15px;
     border-radius: 10px;
-    outline: none;
-}
-
-.add {
-    border: none;
-    border-radius: 10px;
-    background-color: rgb(7, 85, 240);
+    border: 1px solid #ccc;
+    transition: 0.3s;
+  }
+  
+  input:focus {
+    border-color: #764ba2;
+  }
+  
+  .add {
+    background: #764ba2;
     color: #fff;
+    border: none;
     padding: 10px 20px;
+    border-radius: 10px;
     cursor: pointer;
-}
-
-ul {
+    transition: 0.3s;
+  }
+  
+  .add:hover {
+    background: #5b3d91;
+  }
+  
+  ul {
     list-style: none;
     padding: 0;
-    text-align: left;
-}
+  }
+  
+  ul li {
+    background: #f2f2f2;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease-in-out;
+  }
+  
+  ul li.completed {
+    text-decoration: line-through;
+    color: #999;
+    background-color: #e0e0e0;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .actions button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s;
+  }
+  
+  .actions button:hover {
+    transform: scale(1.2);
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  input[type="text"] {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    outline: none;
+    transition: border 0.3s ease;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #764ba2; /* Or any color you like */
+    box-shadow: 0 0 5px rgba(118, 75, 162, 0.5); /* Optional glowing effect */
+  }
+
+  /* ... keep your existing styles and ADD/REPLACE the following ... */
 
 ul li {
     position: relative;
-    padding: 10px;
-    cursor: pointer;
-}
-
-ul li.checked {
+    background: #f2f2f2;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  ul li.completed {
     text-decoration: line-through;
-    color: #555;
-}
-
-ul li span {
-    position: absolute;
-    right: 0;
-    top: 5px;
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-    line-height: 40px;text-align: center;
-    border-radius: 50%;
-}
-
-ul li span:hover {
-    background-color: #ababac;
-}
+    color: #999;
+    background-color: #e0e0e0;
+    animation: pulse 0.3s ease;
+  }
+  
+  ul li.fadeOut {
+    animation: fadeOut 0.3s forwards;
+  }
+  
+  .task-text {
+    flex: 1;
+  }
+  
+  .edit-input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid #764ba2;
+    outline: none;
+    animation: fadeInEdit 0.3s ease;
+  }
+  
+  .actions button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+  }
+  
+  .actions button:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Keyframes */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+  
+  @keyframes fadeInEdit {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      background-color: #d0ffd6;
+    }
+    50% {
+      transform: scale(1.02);
+      background-color: #b2f0c9;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
